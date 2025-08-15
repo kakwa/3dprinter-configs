@@ -2,8 +2,43 @@
 
 ## Links
 
-* https://github.com/kakwasfork/Fly-Gemini-V3
-* https://github.com/kakwasfork/mellow-3d.github.io || https://kakwasfork.github.io/mellow-3d.github.io/
+* **Official Repository**: https://github.com/kakwasfork/Fly-Gemini-V3
+* **Documentation**: https://kakwasfork.github.io/mellow-3d.github.io
+* **Documentation (.md files)**: https://github.com/kakwasfork/mellow-3d.github.io
+
+## Downloads
+
+### Custom Armbian Images
+* **Armbian 13 (2025.08.15)**: [armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz) - Custom Armbian 13 image optimized for Fly Gemini v3 with Klipper
+
+### Official Mellow Images
+* **Mellow Official Image**: [FLY-v3.0_Flygemini_bullseye_current_5.10.85.img.xz](https://cdn.mellow.klipper.cn/IMG/Build/FLY-v3.0_Flygemini_bullseye_current_5.10.85.img.xz) - Official Mellow Armbian Bullseye image with kernel 5.10.85
+
+### Package From Mellow
+* **Board Support Package**: [armbian-bsp-cli-flygemini_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-bsp-cli-flygemini_21.11.0-trunk_arm64.deb) - Armbian BSP package for Fly Gemini v3
+* **Device Tree Blob**: [linux-dtb-current-sunxi64_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/linux-dtb-current-sunxi64_21.11.0-trunk_arm64.deb) - Linux device tree blob for Allwinner H6 SoC
+* **Linux Kernel Image**: [linux-image-current-sunxi64_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/linux-image-current-sunxi64_21.11.0-trunk_arm64.deb) - Linux kernel image for Allwinner H6 SoC
+* **U-Boot Bootloader**: [linux-u-boot-flygemini-current_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/linux-u-boot-flygemini-current_21.11.0-trunk_arm64.deb) - U-Boot bootloader for Fly Gemini v3
+* **HID Bootloader**: [hid_bootloader.bin](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/hid_bootloader.bin) - Human Interface Device (HID) Bootloader for the STM32 MCU.
+
+## Flashing Instructions
+
+```bash
+# Replace /dev/sdX with your actual device (be very careful!)
+# Use lsblk to identify your microSD card
+lsblk
+
+# Flash the image (replace /path/to/image.img with actual path)
+xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
+
+# Sync to ensure all data is written
+sudo sync
+```
+
+The default credentials are:
+
+- **Username**: `fly`
+- **Password**: `mellow`
 
 
 # UI - Mainsail/Fluidd

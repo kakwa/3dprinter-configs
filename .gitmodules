@@ -1,0 +1,6 @@
+[submodule "voron0.2_fly-gemini/klipper"]
+	path = voron0.2_fly-gemini/klipper
+	url = https://github.com/Klipper3d/klipper.git
+[submodule "voron0.2_fly-gemini/moonraker"]
+	path = voron0.2_fly-gemini/moonraker
+	url = https://github.com/Arksine/moonraker.git

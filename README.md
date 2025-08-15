@@ -2,25 +2,20 @@
 
 Base configuration files, notes, and documentation for my 3D printers.
 
-## Printers
-
-### [voron0.2_fly-gemini](./voron0.2_fly-gemini/)
-
-Voron 0.2 Siboor kit with FLY Gemini board.
-
-Configuration in: [voron0.2_fly-gemini](./voron0.2_fly-gemini/).
-
-
 ## Submodules Setup
 
-```bash
-# Clone with submodules
-git clone --recursive <repository-url>
+Versions of Klipper & Co are managed using git submodules.
 
-# Or initialize submodules if already cloned
+Here's how to recover/update these:
+```shell
+# initialize submodules
 git submodule update --init --recursive
 ```
 
-## Structure
+## Printers
 
+### Voron 0.2 - Fly Gemini v3
 
+Voron 0.2 Siboor kit with FLY Gemini v3 board.
+
+Configuration in: [voron0.2_fly-gemini](./voron0.2_fly-gemini/).

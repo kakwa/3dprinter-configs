@@ -1,0 +1,10 @@
+.*_history
+.bashrc
+.lesshst
+.profile
+.sudo_as_admin_successful
+.viminfo
+.zshrc
+.oh-my-zsh
+.ssh
+.local

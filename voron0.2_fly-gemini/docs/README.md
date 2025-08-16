@@ -9,7 +9,7 @@
 ## Downloads
 
 ### Custom Armbian Images
-* **Armbian 13 (2025.08.15)**: [armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz) - Custom Armbian 13 image optimized for Fly Gemini v3 with Klipper
+* **Armbian 13 (2025.08.16)**: [armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz) - Custom Armbian 13 image optimized for Fly Gemini v3 with Klipper
 
 ### Official Mellow Images
 * **Mellow Official Image**: [FLY-v3.0_Flygemini_bullseye_current_5.10.85.img.xz](https://cdn.mellow.klipper.cn/IMG/Build/FLY-v3.0_Flygemini_bullseye_current_5.10.85.img.xz) - Official Mellow Armbian Bullseye image with kernel 5.10.85
@@ -33,7 +33,7 @@ Copy Image on SD card:
 lsblk
 
 # Flash the image (replace /path/to/image.img with actual path)
-xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz | sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
+xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz | sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
 
 # Sync to ensure all data is written
 sudo sync
@@ -49,7 +49,7 @@ The default credentials are:
 Once connected to the board, you can resize the root FS:
 
 ```bash
-resize2fs /dev/mmcblk0p2
+sudo resize2fs /dev/mmcblk0p2
 ```
 
 Regenerate ssh hosts keys:

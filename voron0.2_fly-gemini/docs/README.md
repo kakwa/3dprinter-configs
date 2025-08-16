@@ -29,7 +29,7 @@
 lsblk
 
 # Flash the image (replace /path/to/image.img with actual path)
-xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz | sudo dd of=/dev/sdX bs=4M status=progress conv=fsync
+xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.15.img.xz | sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
 
 # Sync to ensure all data is written
 sudo sync
@@ -54,6 +54,8 @@ jq . mainsail/release_info.json
 ### Update
 
 ```shell
+# Home
+cd ~/
 
 # Get latest version using jq for cleaner JSON parsing
 VERSION=$(curl -s "https://api.github.com/repos/mainsail-crew/mainsail/releases/latest" | \
@@ -62,8 +64,11 @@ VERSION=$(curl -s "https://api.github.com/repos/mainsail-crew/mainsail/releases/
 echo "Installing Mainsail version: $VERSION"
 
 # Clean and recreate directory, then download and extract  
-rm -rf mainsail/ && mkdir -p mainsail/ && cd mainsail/ && \
-curl -sL "https://github.com/mainsail-crew/mainsail/releases/download/v${VERSION}/mainsail.zip" | unzip -
+! [ -z "$VERSION" ] && rm -rf mainsail/ && mkdir -p mainsail/ && cd mainsail/ && \
+curl -sL "https://github.com/mainsail-crew/mainsail/releases/download/v${VERSION}/mainsail.zip" -o mainsail.zip && \
+unzip  mainsail.zip && \
+rm -f mainsail.zip
+cd -
 ```
 
 ### Enable
@@ -84,6 +89,7 @@ jq . fluidd/release_info.json
 ### Update
 
 ```shell
+# Home
 cd ~/
 
 # Get latest version from GitHub API
@@ -94,8 +100,11 @@ VERSION=$(curl -s "https://api.github.com/repos/fluidd-core/fluidd/releases/late
 echo "Installing Fluidd version: $VERSION"
 
 # Clean and recreate directory, then download and extract
-rm -rf fluidd/ && mkdir -p fluidd/ && cd fluidd/ && \
-curl -sL "https://github.com/fluidd-core/fluidd/releases/download/v${VERSION}/fluidd.zip" | unzip -
+! [ -z "$VERSION" ] && rm -rf fluidd/ && mkdir -p fluidd/ && cd fluidd/ && \
+curl -sL "https://github.com/fluidd-core/fluidd/releases/download/v${VERSION}/fluidd.zip" -o fluidd.zip && \
+unzip fluidd.zip && \
+rm -f fluidd.zip
+cd -
 ```
 
 ### Enable

@@ -82,21 +82,55 @@ chmod 600 ~/.ssh/authorized_keys
 
 # Kernel Update
 
-TODO, trying a simple package upgrade results in a boot failure.
+TODO, still stuck on a 5.10.85 kernel. FYI trying a simple package upgrade results in a boot failure.
 
-# Klipper Build and Install (MCU & Control Panel Firmwares)
+# Klipper Build and Install (MCU & Display Firmwares)
 
 ## Klipper Update
 
-TODO
+```bash
+# Navigate to Klipper directory
+cd ~/klipper
+
+# Pull latest changes
+git pull
+```
 
 ## VirtualEnv Setup
 
-TODO
+```bash
+# Create virtual environment
+python3 -m venv ~/klippy-env
+
+# Activate virtual environment
+source ~/klippy-env/bin/activate
+
+# Install dependencies
+pip install -r ~/klipper/scripts/klippy-requirements.txt
+```
 
 ## Configuration and Build
 
-TODO
+### MCU Firmware (STM32)
+
+```bash
+# Navigate to Klipper directory
+cd ~/klipper
+
+# Configure for STM32F103
+make menuconfig
+# Select: Micro-controller Architecture -> STMicroelectronics STM32
+# Select: Processor model -> STM32F103
+# Select: Bootloader offset -> 28KiB bootloader
+# Select: Clock Reference -> 8 MHz crystal
+# Select: Communication interface -> USB (on PA11/PA12)
+
+# Build firmware
+make clean
+make
+
+# The firmware will be saved as: out/klipper.bin
+```
 
 ## Firmware Flashing
 
@@ -106,9 +140,63 @@ TODO
 
 ## Moonraker Update
 
-TODO
+```bash
+# Navigate to Moonraker directory
+cd ~/moonraker
+
+# Pull latest changes
+git pull
+
+# Restart Moonraker service
+sudo systemctl restart moonraker
+```
 
 ## VirtualEnv Setup
+
+```bash
+# Create virtual environment
+python3 -m venv ~/moonraker-env
+
+# Activate virtual environment
+source ~/moonraker-env/bin/activate
+
+# Install dependencies
+pip install -r ~/moonraker/scripts/moonraker-requirements.txt
+
+# Install Moonraker
+pip install -e ~/moonraker
+```
+
+# System & Services Setup
+
+## Klipper SystemD Services
+
+```bash
+# Copy system configuration files to their proper locations
+sudo cp -r root/etc/systemd/system/* /tc/systemd/system/
+
+# Reload systemd to recognize new services
+sudo systemctl daemon-reload
+
+# Enable and start the services
+sudo systemctl enable klipper
+sudo systemctl enable moonraker
+sudo systemctl enable ustreamer
+
+# Restart services
+sudo systemctl restart klipper
+sudo systemctl restart moonraker
+
+
+# Restart nginx to load new configurations
+sudo systemctl restart nginx
+```
+
+## Udev
+
+TODO
+
+## NGinx
 
 TODO
 

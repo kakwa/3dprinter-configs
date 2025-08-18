@@ -34,7 +34,7 @@ Copy Image on SD card:
 lsblk
 
 # Flash the image (replace /path/to/image.img with actual path)
-curl -L "https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz" | \
+curl -q -L "https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz" | \
    xz -d | \
    sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
 

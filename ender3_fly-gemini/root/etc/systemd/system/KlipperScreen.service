@@ -1,0 +1,15 @@
+[Unit]
+Description=KlipperScreen
+After=moonraker.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=fly
+WorkingDirectory=/home/fly/KlipperScreen
+ExecStart=/usr/bin/xinit /home/fly/.KlipperScreen-env/bin/python /home/fly/KlipperScreen/screen.py -c /home/fly/klipper_config/KlipperScreen.conf
+
+[Install]
+WantedBy=multi-user.target

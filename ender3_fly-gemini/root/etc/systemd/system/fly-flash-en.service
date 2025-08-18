@@ -1,0 +1,14 @@
+[Unit]
+Description=fly-flash-en
+After=remote-fs.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+Restart=no
+RemainAfterExit=yes
+RestartSec=1
+User=root
+ExecStart=/usr/bin/fly-flash -d gemini-v3 -s > /dev/null

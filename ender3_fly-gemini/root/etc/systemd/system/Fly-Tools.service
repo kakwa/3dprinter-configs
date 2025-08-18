@@ -1,0 +1,15 @@
+[Unit]
+Description=Fly-Tools
+Requires=network-online.target
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RemainAfterExit=yes
+RestartSec=1
+User=root
+ExecStart=/usr/local/bin/Fly-Tools

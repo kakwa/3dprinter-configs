@@ -10,3 +10,6 @@
 .local
 .config
 .vim*
+.cache/
+.*comp*
+*.log

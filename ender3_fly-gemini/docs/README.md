@@ -120,11 +120,14 @@ pip install -r ~/klipper/scripts/klippy-requirements.txt
 # Navigate to Klipper directory
 cd ~/klipper
 
-# Configure for STM32F103
+# Copy the configuration over
+cp ../klipper_config/mcu.config ./.config
+
+# Check it for STM32F405
 make menuconfig
 # Select: Micro-controller Architecture -> STMicroelectronics STM32
-# Select: Processor model -> STM32F103
-# Select: Bootloader offset -> 28KiB bootloader
+# Select: Processor model -> STM32F405
+# Select: Bootloader offset -> 32KiB bootloader
 # Select: Clock Reference -> 8 MHz crystal
 # Select: Communication interface -> USB (on PA11/PA12)
 
@@ -137,7 +140,12 @@ make
 
 ## Firmware Flashing
 
-TODO
+Run the following command
+```
+sudo geminiv3-flash
+```
+
+If necessary, do a [Factory Reset](https://mellow-3d.github.io/fly-gemini_v3_boot_oem.html) of the MCU.
 
 # Moonraker Install (Management UI Backend)
 

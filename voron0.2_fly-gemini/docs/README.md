@@ -2,9 +2,10 @@
 
 ## Links
 
-* **Official Repository**: https://github.com/kakwasfork/Fly-Gemini-V3
 * **Documentation**: https://kakwasfork.github.io/mellow-3d.github.io
 * **Documentation (.md files)**: https://github.com/kakwasfork/mellow-3d.github.io
+* **Misc Board Assets & Binaries**: https://github.com/kakwasfork/Fly-Gemini-V3
+
 
 ## Downloads
 
@@ -33,7 +34,9 @@ Copy Image on SD card:
 lsblk
 
 # Flash the image (replace /path/to/image.img with actual path)
-xz -dc armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz | sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
+curl -L "https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz" | \
+   xz -d | \
+   sudo dd bs=4M status=progress conv=fsync of=/dev/sdX
 
 # Sync to ensure all data is written
 sudo sync

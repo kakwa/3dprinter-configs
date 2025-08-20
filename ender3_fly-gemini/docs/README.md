@@ -83,6 +83,12 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+Connect the board to wifi if necessary:
+
+```bash
+sudo nmtui
+```
+
 # Kernel Update
 
 TODO, still stuck on a 5.10.85 kernel. FYI trying a simple package upgrade results in a boot failure.
@@ -197,19 +203,18 @@ sudo systemctl enable ustreamer
 # Restart services
 sudo systemctl restart klipper
 sudo systemctl restart moonraker
-
-
-# Restart nginx to load new configurations
-sudo systemctl restart nginx
 ```
 
-## Udev
 
-TODO
+## Nginx
 
-## NGinx
-
-TODO
+```bash
+rm /etc/nginx/site-enabled/*
+cp root/etc/nginx/sites-available/* /etc/nginx/site-available/
+cp root/etc/nginx/sites-enabled/*   /etc/nginx/site-enabled/
+systemctl restart nginx
+systemctl enable nginx
+```
 
 # UI - Mainsail/Fluidd
 

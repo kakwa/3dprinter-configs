@@ -1,15 +1,21 @@
-# 3D Printer Configurations
+# 3D Printer Configurations - Desciption
 
 Base configuration files, notes, and documentation for my 3D printers.
 
-## Submodules Setup
+# Git & Submodules Setup
 
-Versions of Klipper & Co are managed using git submodules.
+```
+# Set to the correct Printer
+export PRINTER_DIR=PRINTER_TARGETED
 
-Here's how to recover/update these:
-```shell
-# initialize submodules
+sudo git clone https://github.com/kakwa/3dprinter-configs /home/3dprinter-configs
+sudo mv $HOME ${HOME}.bk
+sudo ln -s /home/3dprinter-configs/${PRINTER_DIR} $HOME
+sudo rsync -Pizza ${HOME}.bk/ $HOME/
+cd ~/
+sudo chown -R ${USER}:${USER} /home/3dprinter-configs
 git submodule update --init --recursive
+reboot
 ```
 
 ## Printers
@@ -20,7 +26,7 @@ Voron 0.2 Siboor kit with FLY Gemini v3 board.
 
 Configuration in: [voron0.2_fly-gemini](./voron0.2_fly-gemini/).
 
-### Ender 3 Pro - FLy Gemini v3
+### Ender 3 Pro - Fly Gemini v3
 
 Configuration in: [ender3_fly-gemini](./ender3_fly-gemini/).
 

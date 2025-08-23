@@ -13,3 +13,7 @@
 .cache/
 .*comp*
 *.log
+*.log.*
+*.thumbs
+*.gcode
+

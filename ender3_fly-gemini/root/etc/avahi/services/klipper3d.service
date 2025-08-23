@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">Klipper3D on %h</name>
+  <service>
+    <type>_http._tcp</type>
+    <port>80</port>
+    <txt-record>description=3D Printer Control Interface</txt-record>
+    <txt-record>manufacturer=Klipper3D</txt-record>
+    <txt-record>model=3D Printer</txt-record>
+    <txt-record>version=1.0</txt-record>
+  </service>
+  <service>
+    <type>_https._tcp</type>
+    <port>443</port>
+    <txt-record>description=3D Printer Control Interface (Secure)</txt-record>
+    <txt-record>manufacturer=Klipper3D</txt-record>
+    <txt-record>model=3D Printer</txt-record>
+    <txt-record>version=1.0</txt-record>
+  </service>
+</service-group>

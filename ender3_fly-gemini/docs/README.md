@@ -186,6 +186,22 @@ pip install -e ~/moonraker
 
 # System & Services Setup
 
+## Hostname & mDNS/Avahi
+
+Optional, but make the printer easier to find on the network:
+
+```bash
+sudo echo "YOUR_PRINTER_NAME" >/etc/hostname
+sudo hostname -F /etc/hostname
+```
+
+```bash
+sudo cp -r root/etc/avahi/* /etc/avahi/
+sudo apt install avahi-daemon
+```
+
+The Printer should become visible as `YOUR_PRINTER_NAME.local`.
+
 ## Klipper SystemD Services
 
 ```bash
@@ -205,15 +221,14 @@ sudo systemctl restart klipper
 sudo systemctl restart moonraker
 ```
 
-
 ## Nginx
 
 ```bash
-rm /etc/nginx/site-enabled/*
-cp root/etc/nginx/sites-available/* /etc/nginx/site-available/
-cp root/etc/nginx/sites-enabled/*   /etc/nginx/site-enabled/
-systemctl restart nginx
-systemctl enable nginx
+sudo rm /etc/nginx/sites-enabled/*
+sudo cp root/etc/nginx/sites-available/* /etc/nginx/sites-available/
+sudo cp root/etc/nginx/sites-enabled/*   /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
+sudo systemctl enable nginx
 ```
 
 # UI - Mainsail/Fluidd

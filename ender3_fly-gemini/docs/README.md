@@ -186,6 +186,12 @@ pip install -e ~/moonraker
 
 # System & Services Setup
 
+## Reset Print History Stats
+
+```bash
+curl -X POST http://127.0.0.1:7125/server/history/reset_totals
+```
+
 ## Hostname & mDNS/Avahi
 
 Optional, but make the printer easier to find on the network:

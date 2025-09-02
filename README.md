@@ -40,10 +40,9 @@ Configuration in: [ender3_fly-gemini](./ender3_fly-gemini/).
 * **Documentation (.md files)**: https://github.com/kakwasfork/mellow-3d.github.io
 * **Misc Board Assets & Binaries**: https://github.com/kakwasfork/Fly-Gemini-V3
 
-
 ### Downloads
 
-#### Custom Armbian Images
+#### Cleaned-Up Image
 * **Armbian 13 (2025.08.16)**: [armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/armbian-13_mellow-fly-gemini-v3.2025.08.16.img.xz) - Custom Armbian 13 image optimized for Fly Gemini v3 with Klipper
 
 #### Official Mellow Images
@@ -55,6 +54,8 @@ Configuration in: [ender3_fly-gemini](./ender3_fly-gemini/).
 * **Linux Kernel Image**: [linux-image-current-sunxi64_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/linux-image-current-sunxi64_21.11.0-trunk_arm64.deb) - Linux kernel image for Allwinner H6 SoC
 * **U-Boot Bootloader**: [linux-u-boot-flygemini-current_21.11.0-trunk_arm64.deb](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/linux-u-boot-flygemini-current_21.11.0-trunk_arm64.deb) - U-Boot bootloader for Fly Gemini v3
 * **HID Bootloader**: [hid_bootloader.bin](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/hid_bootloader.bin) - Human Interface Device (HID) Bootloader for the STM32 MCU.
+* **FLY-Config**: [FLY-Config](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/FLY-Config) - Configuration/Setup Program (Golang CLI).
+* **Fly-Tool**: [Fly-Tools](https://github.com/kakwa/3dprinter-configs/releases/download/2025.08.15/Fly-Tools) - Firmware & MCU/USB Info/Admin tools (Golang Web Server, Port 9999).
 
 ### Kernel Update
 
